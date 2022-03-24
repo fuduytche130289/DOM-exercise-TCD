@@ -23,7 +23,7 @@
     function reOrder() {
         let arr = [4, 3, 2, 1, 0];
         let ul = document.getElementsByTagName("ul");
-        let items = ul[0].children;
+        let items = document.querySelectorAll("li");
         let elements = document.createDocumentFragment();
 
         arr.forEach(function (idx) {
