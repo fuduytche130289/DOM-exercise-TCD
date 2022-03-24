@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        .slide-item {
+            display: none
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        .wp-slide {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: orangered;
+            font-weight: bold;
+            font-size: 36px;
+        }
+
+        .prev {
+            left: -50px;
+        }
+
+        .next {
+            right: -50px;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="wp-slide">
+
+        <div class="slide-item">
+            <img src="assets/images/image1.jpg" style="width:1000px;height: 500px;">
+        </div>
+
+        <div class="slide-item">
+            <img src="assets/images/image2.jpg" style="width:1000px;height: 500px">
+        </div>
+
+        <div class="slide-item">
+            <img src="assets/images/image3.jpg" style="width:1000px;height: 500px">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)"><i class="fa-solid fa-caret-left"></i></a>
+        <a class="next" onclick="plusSlides(1)"><i class="fa-solid fa-caret-right"></i></a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+</body>
+<script>
+    let index = 1;
+    showSlides(index);
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("slide-item");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+            index = 1
+        }
+        if (n < 1) {
+            index = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[index - 1].style.display = "block";
+        dots[index - 1].className += " active";
+    }
+
+    function plusSlides(n) {
+        showSlides(index += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(index = n);
+    }
+
+</script>
+
+</html>

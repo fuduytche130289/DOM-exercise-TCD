@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .multiselect {
+            width: 200px;
+        }
+
+        .selectBox {
+            position: relative;
+        }
+
+        .selectBox select {
+            width: 100%;
+            font-weight: bold;
+        }
+
+        .overSelect {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .m-0 {
+            margin: 0;
+        }
+
+        #txt-content {
+            display: none;
+            height: 100px;
+        }
+
+        #txt-content label {
+            display: block;
+
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="multiselect">
+        <div class="selectBox" onclick="showCheckboxes()">
+            <select>
+                <option>Select an option</option>
+            </select>
+            <div class="overSelect"></div>
+        </div>
+        <div id="txt-content">
+            <p class="m-0">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium repudiandae, officia
+                dolorem
+                totam corporis.</p>
+        </div>
+
+
+</body>
+
+<script>
+    var expanded = false,
+        checkboxes = document.getElementById("txt-content");
+
+    function showCheckboxes() {
+        if (!expanded) {
+            checkboxes.style.display = "block";
+            expanded = true;
+        } else {
+            checkboxes.style.display = "none";
+            expanded = false;
+        }
+    }
+
+</script>
+
+</html>
