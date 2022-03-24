@@ -27,9 +27,9 @@
 </body>
 <script>
     function myFunction() {
-        const node = document.querySelector("ul");
+        const node = document.querySelectorAll("ul");
         const clone = node.cloneNode(true);
-        document.getElementsByTagName('ul')[2].appendChild(clone);
+        document.querySelector('ul:nth-child(2)').appendChild(clone);
     }
 </script>
 
