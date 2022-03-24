@@ -27,7 +27,7 @@
 </body>
 <script>
     function myFunction() {
-        const node = document.querySelectorAll("ul");
+        const node = document.querySelector("ul");
         const clone = node.cloneNode(true);
         document.querySelector('ul:nth-child(2)').appendChild(clone);
     }
